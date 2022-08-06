@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_Play_button_up():
-	if get_tree().change_scene("res://game/game.tscn") != OK:
+	if get_tree().change_scene("res://game/Game.tscn") != OK:
 		print("There was an error trying to load the scene...")
 	pass # Replace with function body.
 

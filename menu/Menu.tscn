@@ -15,45 +15,52 @@ margin_right = 1280.0
 margin_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 448.0
-margin_top = 308.0
-margin_right = 832.0
-margin_bottom = 412.0
+margin_left = 429.0
+margin_top = 272.0
+margin_right = 850.0
+margin_bottom = 448.0
 
-[node name="Logo" type="Sprite" parent="CenterContainer/VBoxContainer"]
-position = Vector2( 505, 64 )
-scale = Vector2( 0.991787, 1.0997 )
+[node name="Logo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+margin_right = 421.0
+margin_bottom = 60.0
 texture = ExtResource( 2 )
 
 [node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 384.0
-margin_bottom = 20.0
+margin_top = 64.0
+margin_right = 421.0
+margin_bottom = 84.0
 text = "Play"
 
 [node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 384.0
-margin_bottom = 44.0
+margin_top = 88.0
+margin_right = 421.0
+margin_bottom = 108.0
 text = "Credits"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 384.0
-margin_bottom = 68.0
+margin_top = 112.0
+margin_right = 421.0
+margin_bottom = 132.0
 text = "Quit"
 
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 136.0
+margin_right = 421.0
+margin_bottom = 140.0
+
 [node name="About" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 72.0
-margin_right = 384.0
-margin_bottom = 86.0
-text = "Made for the bits & Bytes Unofficial Game Jam! August 2022"
+margin_top = 144.0
+margin_right = 421.0
+margin_bottom = 158.0
+text = "Made for the bits & Bytes Unofficial Game Jam! August 2022."
 align = 1
 
 [node name="Copyright" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 90.0
-margin_right = 384.0
-margin_bottom = 104.0
-text = "Copyright 2022 Andrew Lee. Powered by the Godot Engine"
+margin_top = 162.0
+margin_right = 421.0
+margin_bottom = 176.0
+text = "(c) Copyright 2022 Andrew Lee. Powered by the Godot Engine."
 align = 1
 
 [connection signal="button_up" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_button_up"]
