@@ -10,16 +10,24 @@ config_version=4
 
 [application]
 
-config/name="Frivolous Run"
-run/main_scene="res://Menu.tscn"
+config/name="FrivoRun"
+run/main_scene="res://menu/Menu.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1280
 window/size/height=720
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/white.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends KinematicBody2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 160 )
+
+[node name="Player" type="KinematicBody2D"]
+script = SubResource( 2 )
+
+[node name="White" type="Sprite" parent="."]
+position = Vector2( -4.76837e-07, 0 )
+scale = Vector2( 20, 20 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
