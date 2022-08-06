@@ -11,13 +11,13 @@ margin_right = 67.0
 margin_bottom = 40.0
 
 [node name="FPS" type="Label" parent="VBoxContainer"]
-margin_right = 107.0
+margin_right = 83.0
 margin_bottom = 14.0
 text = "FPS"
 script = ExtResource( 1 )
 
 [node name="Money" type="Label" parent="VBoxContainer"]
 margin_top = 18.0
-margin_right = 107.0
+margin_right = 83.0
 margin_bottom = 32.0
-text = "Money Spent: $0"
+text = "Money Spent"

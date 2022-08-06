@@ -9,10 +9,6 @@ export var ACCEL = 20
 
 var motion = Vector2()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 func _physics_process(_delta):
 	
@@ -34,9 +30,7 @@ func _physics_process(_delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			motion.y = -JUMPFORCE
-			pass
 		
 	
 	motion = move_and_slide(motion,UP)
-	
-	pass
+

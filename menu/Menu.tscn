@@ -3,66 +3,111 @@
 [ext_resource path="res://menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/frivorun-logo.png" type="Texture" id=2]
 
-[node name="Menu" type="MarginContainer"]
+[node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_scale = Vector2( 1.00487, 1.03334 )
-rect_pivot_offset = Vector2( -1427, -96 )
 script = ExtResource( 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 margin_right = 1280.0
 margin_bottom = 720.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 margin_left = 408.0
 margin_top = 223.0
 margin_right = 871.0
 margin_bottom = 497.0
 
-[node name="Logo" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+[node name="Logo" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_right = 463.0
 margin_bottom = 158.0
 texture = ExtResource( 2 )
 
-[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 162.0
 margin_right = 463.0
 margin_bottom = 182.0
 text = "Play"
 
-[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 186.0
 margin_right = 463.0
 margin_bottom = 206.0
 text = "Credits"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 210.0
 margin_right = 463.0
 margin_bottom = 230.0
 text = "Quit"
 
-[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 234.0
 margin_right = 463.0
 margin_bottom = 238.0
 
-[node name="About" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="About" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 242.0
 margin_right = 463.0
 margin_bottom = 256.0
 text = "Made for the bits & Bytes Unofficial Game Jam! August 2022."
 align = 1
 
-[node name="Copyright" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Copyright" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 260.0
 margin_right = 463.0
 margin_bottom = 274.0
-text = "(c) Copyright 2022 Andrew Lee. Powered by the Godot Engine."
+text = "© Copyright 2022 Andrew Lee. Powered by the Godot Engine."
 align = 1
 
-[connection signal="button_up" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_button_up"]
+[node name="CreditsDialog" type="WindowDialog" parent="."]
+margin_left = 382.0
+margin_top = 186.0
+margin_right = 943.0
+margin_bottom = 528.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsDialog/MarginContainer"]
+margin_right = 521.0
+margin_bottom = 302.0
+
+[node name="Label" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+margin_right = 521.0
+margin_bottom = 14.0
+text = "About FrivoRun"
+align = 1
+
+[node name="Label2" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 521.0
+margin_bottom = 32.0
+text = "Created by Andrew Lee"
+align = 1
+
+[node name="Label3" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 521.0
+margin_bottom = 50.0
+text = "Made for the bits & Bytes Game Jam of August 2022"
+
+[node name="Label4" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 521.0
+margin_bottom = 68.0
+text = "Powered by the Godot Engine"
+
+[connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_button_up"]
+[connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_button_up"]
+[connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_button_up"]

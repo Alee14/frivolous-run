@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Happy Bee.mp3-52677b3d1b2410253887d0baf6a846fe.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Happy Bee.mp3"
+dest_files=[ "res://.import/Happy Bee.mp3-52677b3d1b2410253887d0baf6a846fe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
