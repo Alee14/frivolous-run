@@ -55,7 +55,7 @@ margin_bottom = 238.0
 margin_top = 242.0
 margin_right = 463.0
 margin_bottom = 256.0
-text = "Made for the bits & Bytes Unofficial Game Jam! August 2022."
+text = "Made for the bits & Bytes Unofficial Game Jam August 2022."
 align = 1
 
 [node name="Copyright" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
@@ -107,6 +107,14 @@ margin_top = 54.0
 margin_right = 521.0
 margin_bottom = 68.0
 text = "Powered by the Godot Engine"
+
+[node name="Label5" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+margin_top = 72.0
+margin_right = 521.0
+margin_bottom = 120.0
+text = "Music used for this game:
+Digital Lemonade by Kevin Macleod
+Happy Bee by Kevin Macleod"
 
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_button_up"]
