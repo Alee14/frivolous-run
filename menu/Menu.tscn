@@ -1,121 +1,131 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://b2qd30xikdn5s"]
 
-[ext_resource path="res://menu/Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/frivorun-logo.png" type="Texture" id=2]
+[ext_resource type="Texture2D" uid="uid://c5ffyq2jql05n" path="res://assets/images/cactus.svg" id="1_jwgwe"]
+[ext_resource type="Texture2D" uid="uid://c2xlvjlanf1j0" path="res://assets/images/frivorun-logo.png" id="2"]
+[ext_resource type="LabelSettings" uid="uid://ca7nqey0cn3d6" path="res://menu/labelsettings.tres" id="3_a1avm"]
+
+[sub_resource type="GDScript" id="GDScript_kjhan"]
+script/source = "extends Control
+
+
+func _on_Play_button_up():
+	if get_tree().change_scene_to_file(\"res://game/Game.tscn\") != OK:
+		print(\"There was an error trying to load the scene...\")
+
+
+func _on_Credits_button_up():
+	$CreditsDialog.popup_centered()
+
+
+func _on_Quit_button_up():
+	get_tree().quit()
+
+
+func _on_button_button_up():
+	$CreditsDialog.visible = false
+"
 
 [node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_kjhan")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
-margin_right = 1280.0
-margin_bottom = 720.0
+layout_mode = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="MarginContainer/CenterContainer"]
+
+[node name="Cactus" type="Sprite2D" parent="MarginContainer/CenterContainer/ParallaxBackground"]
+position = Vector2(640, 360)
+texture = ExtResource("1_jwgwe")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
-margin_left = 408.0
-margin_top = 223.0
-margin_right = 871.0
-margin_bottom = 497.0
+layout_mode = 2
 
 [node name="Logo" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_right = 463.0
-margin_bottom = 158.0
-texture = ExtResource( 2 )
+layout_mode = 2
+texture = ExtResource("2")
 
 [node name="Play" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 162.0
-margin_right = 463.0
-margin_bottom = 182.0
+layout_mode = 2
 text = "Play"
 
 [node name="Credits" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 186.0
-margin_right = 463.0
-margin_bottom = 206.0
+layout_mode = 2
 text = "Credits"
 
 [node name="Quit" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 210.0
-margin_right = 463.0
-margin_bottom = 230.0
+layout_mode = 2
 text = "Quit"
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/CenterContainer/VBoxContainer"]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 234.0
-margin_right = 463.0
-margin_bottom = 238.0
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 
 [node name="About" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 242.0
-margin_right = 463.0
-margin_bottom = 256.0
-text = "Made for the bits & Bytes Unofficial Game Jam August 2022."
-align = 1
+layout_mode = 2
+text = "Originally made for the bits & Bytes Unofficial Game Jam August 2022."
+label_settings = ExtResource("3_a1avm")
+horizontal_alignment = 1
 
 [node name="Copyright" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 260.0
-margin_right = 463.0
-margin_bottom = 274.0
-text = "© Copyright 2022 Andrew Lee. Powered by the Godot Engine."
-align = 1
+layout_mode = 2
+text = "© Copyright 2023 Andrew Lee."
+label_settings = ExtResource("3_a1avm")
+horizontal_alignment = 1
 
-[node name="CreditsDialog" type="WindowDialog" parent="."]
-margin_left = 382.0
-margin_top = 186.0
-margin_right = 943.0
-margin_bottom = 528.0
+[node name="CreditsDialog" type="Window" parent="."]
+size = Vector2i(500, 320)
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CreditsDialog"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsDialog/MarginContainer"]
-margin_right = 521.0
-margin_bottom = 302.0
+layout_mode = 2
 
-[node name="Label" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
-margin_right = 521.0
-margin_bottom = 14.0
+[node name="AboutLabel" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "About FrivoRun"
-align = 1
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 521.0
-margin_bottom = 32.0
-text = "Created by Andrew Lee"
-align = 1
+[node name="PoweredLabel" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Created by Andrew Lee
+Made for the bits & Bytes Game Jam of August 2022
+Powered by the Godot Engine"
 
-[node name="Label3" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 521.0
-margin_bottom = 50.0
-text = "Made for the bits & Bytes Game Jam of August 2022"
-
-[node name="Label4" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
-margin_top = 54.0
-margin_right = 521.0
-margin_bottom = 68.0
-text = "Powered by the Godot Engine"
-
-[node name="Label5" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
-margin_top = 72.0
-margin_right = 521.0
-margin_bottom = 120.0
+[node name="MusicLabel" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "Music used for this game:
 Digital Lemonade by Kevin Macleod
 Happy Bee by Kevin Macleod"
 
+[node name="ImageLabel" type="Label" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Images used:
+Cactus by Victor Tran"
+
+[node name="Button" type="Button" parent="CreditsDialog/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_Play_button_up"]
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_Credits_button_up"]
 [connection signal="button_up" from="MarginContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="button_up" from="CreditsDialog/MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
