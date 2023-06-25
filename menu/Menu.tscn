@@ -7,7 +7,6 @@
 [sub_resource type="GDScript" id="GDScript_kjhan"]
 script/source = "extends Control
 
-
 func _on_Play_button_up():
 	if get_tree().change_scene_to_file(\"res://game/Game.tscn\") != OK:
 		print(\"There was an error trying to load the scene...\")
